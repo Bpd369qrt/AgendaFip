@@ -1,0 +1,102 @@
+/* ===== Header con el menú ===== */
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
+.app-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 15px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.app-header h1{
+  background: linear-gradient(to right, #007bff, #a38ffc); 
+  -webkit-text-fill-color: transparent; /* Hace texto transparente */
+  background-clip: text;          /* Recorta fondo al texto (Firefox/Edge) */
+  text-align: center;  /* Centra el texto */
+}
+
+/* Botón del menú */
+.menu-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.menu-btn:hover {
+  background: #f0f0f0;
+}
+
+/* Menú desplegable (oculto por defecto) */
+.dropdown-menu {
+  display: none; /* ← INVISIBLE al inicio */
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border-radius: 8px;
+  min-width: 180px;
+  flex-direction: column;
+  z-index: 1000;
+  margin-top: 8px;
+  padding: 5px 0;
+}
+
+.dropdown-menu.show {
+  display: flex;
+}
+
+/* Estilo de los enlaces */
+.dropdown-menu a {
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333;
+  display: block;
+  transition: background 0.2s;
+}
+
+.dropdown-menu a:hover {
+  background: #eef5ff;
+  color: #007bff;
+}
+
+.dropdown-menu a:not(:last-child) {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.agenda_evento{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 400px;
+  width: 90%;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+}
+
+.nombre_evento, .fecha_hora, .nota, .archivo{
+    display: flex;                 
+    flex-direction: column;
+}
+
+label, input, button{
+  margin: 5px;
+}
+
+

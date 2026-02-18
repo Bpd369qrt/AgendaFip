@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/agenda.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgendaFip</title>
+</head>
+<body>
+     <header class="app-header">
+
+      <h1>AgendaFip</h1>
+
+      
+      <button id="menuBtn" class="menu-btn">-</button>
+
+      
+      <div id="menuContent" class="dropdown-menu">
+        <a href="#">Inicio</a>
+        <a href="#">Mis Eventos</a>
+        <a href="#">Cerrar Sesión</a>
+      </div>
+    </header>
+    <main class="agenda_container">
+      <div class="agenda_evento">
+        <div class="encabezado">
+          <h2>Agenda Evento</h2>
+        </div>
+        <form action="/url" method="post">
+          <div class="nombre_evento">
+            <label for="">Nombre del Evento</label>
+            <input 
+            type="text"
+            id="nombreEvento"
+            name="nombreEnvento"
+            placeholder="Nombre del Envento"
+            required
+            >
+          </div>
+          <div class="fecha_hora">
+            <label for="">Fecha y Hora</label>
+            <input 
+            type="date"
+            id="fecha"
+            name="fecha"
+            required
+            >
+            <input 
+            type="time"
+            id="hora"
+            name="hora"
+            required
+            >
+          </div>
+          <div class="nota">
+            <label for="">Notas</label>
+            <input 
+            type="text"
+            id="nota"
+            name="nota"
+            placeholder="Agrega detalles aqui"
+            >
+          </div>
+          <div class="archivo">
+            <!-- (accept) Tipos de archivos permitidos -->
+            <!-- (multiple) Permite seleccionar varios archivos -->
+            <input 
+            type="file"
+            id="archivo"
+            name="archivo"
+            accept=".pdf,.doc,.docx,.jpg,.png,.jpeg" 
+            multiple
+            >
+          </div>
+          <button type="submit">Crear Evento</button>
+          </div>
+        </form>
+
+      </div>
+    </main>
+    <script src="../js/script.js"></script>
+</body>
+</html>
