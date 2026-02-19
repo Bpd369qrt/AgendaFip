@@ -1,0 +1,484 @@
+/* ========================================
+   1. VARIABLES CSS (Custom Properties)
+   ======================================== */
+:root {
+    /* Colores Principales */
+    --color-primario: #007bff;
+    --color-secundario: #a38ffc;
+    --color-terciario: #66b3ff;
+    --color-texto: #333333;
+    --color-texto-secundario: #666666;
+    --color-texto-oscuro: #3E3E3F;
+    --color-borde: #dddddd;
+    --color-fondo-claro: #f8f9fa;
+    --color-blanco: #ffffff;
+    
+    /* Gradientes */
+    --gradiente-fondo: linear-gradient(135deg, #d4f0ff 0%, #f0e6ff 100%);
+    --gradiente-texto: linear-gradient(to right, #007bff, #a38ffc);
+    --gradiente-boton: linear-gradient(to right, #007bff, #66b3ff);
+    --gradiente-hover: linear-gradient(to right, #eef5ff, #f0e6ff);
+    
+    /* Sombras */
+    --sombra-suave: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --sombra-media: 0 4px 12px rgba(0, 0, 0, 0.15);
+    --sombra-fuerte: 0 5px 15px rgba(0, 0, 0, 0.15);
+    
+    /* Bordes */
+    --borde-radio: 12px;
+    --borde-radio-grande: 15px;
+    --borde-radio-pequeño: 6px;
+    --borde-radio-menu: 8px;
+    
+    /* Tipografía */
+    --fuente-principal: 'Poppins', sans-serif;
+    
+    /* Transiciones */
+    --transicion-rapida: 0.2s;
+    --transicion-media: 0.3s;
+}
+
+/* ========================================
+   2. RESET GLOBAL
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   3. ESTILOS BASE
+   ======================================== */
+body {
+    background: var(--gradiente-fondo);
+    min-height: 100vh;
+    font-family: var(--fuente-principal);
+    color: var(--color-texto);
+}
+
+/* Layout Centrado (para autenticación) */
+.body-centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Layout App (con header) */
+body:not(.body-centered) {
+    padding: 20px;
+}
+
+/* ========================================
+   4. LAYOUT - HEADER (App Principal)
+   ======================================== */
+.app-header {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 30px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    background: var(--color-blanco);
+    border-radius: var(--borde-radio);
+    box-shadow: var(--sombra-suave);
+    position: relative;
+}
+
+.app-header h1 {
+    background: var(--gradiente-texto);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* ========================================
+   5. LAYOUT - MENÚ DESPLEGABLE
+   ======================================== */
+.menu-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 3px 8px;
+    border-radius: 4px;
+    transition: background var(--transicion-rapida);
+    color: var(--color-texto);
+    margin-left: auto;
+}
+
+.menu-btn:hover {
+    background: #f0f0f0;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 25px;
+    background: var(--color-blanco);
+    box-shadow: var(--sombra-media);
+    border-radius: var(--borde-radio-menu);
+    min-width: 180px;
+    flex-direction: column;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.dropdown-menu.show {
+    display: flex;
+}
+
+.dropdown-menu a {
+    padding: 12px 15px;
+    text-decoration: none;
+    color: var(--color-texto);
+    display: block;
+    transition: background var(--transicion-rapida);
+    font-size: 0.95rem;
+}
+
+.dropdown-menu a:hover {
+    background: var(--gradiente-hover);
+    color: var(--color-primario);
+}
+
+.dropdown-menu a:not(:last-child) {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* ========================================
+   6. LAYOUT - CONTENEDOR PRINCIPAL
+   ======================================== */
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: calc(100vh - 150px);
+    padding: 20px;
+}
+
+/* ========================================
+   7. COMPONENTE - FORMULARIO
+   ======================================== */
+.formulario {
+    background-color: var(--color-blanco);
+    width: 95%;
+    max-width: 600px;
+    padding: 30px;
+    box-shadow: var(--sombra-fuerte);
+    border-radius: var(--borde-radio);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Formulario centrado (auth) */
+.body-centered .formulario {
+    align-items: center;
+    justify-content: center;
+    max-width: 500px;
+    min-height: 350px;
+}
+
+.encabezado h1,
+.encabezado h2 {
+    background: var(--gradiente-texto);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* ========================================
+   8. COMPONENTE - CAMPOS DE FORMULARIO
+   ======================================== */
+.nombre_evento,
+.fecha,
+.hora,
+.nota,
+.archivo,
+.usuario,
+.contraseña,
+.confirmar_contraseña,
+.email {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+label {
+    font-size: 0.95rem;
+    color: var(--color-texto-oscuro);
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="time"],
+textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--borde-radio-pequeño);
+    font-size: 1rem;
+    font-family: var(--fuente-principal);
+    transition: border-color var(--transicion-media);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+input[type="file"] {
+    padding: 8px 0;
+    font-size: 0.9rem;
+    color: var(--color-texto-secundario);
+}
+
+.archivo small {
+    font-size: 0.75rem;
+    color: #888888;
+    margin-top: 4px;
+}
+
+/* ========================================
+   9. COMPONENTE - BOTONES
+   ======================================== */
+button,
+.btn-crear {
+    background: var(--gradiente-boton);
+    color: var(--color-blanco);
+    border: none;
+    padding: 12px;
+    border-radius: var(--borde-radio-pequeño);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    transition: transform var(--transicion-rapida), opacity var(--transicion-rapida);
+}
+
+button:hover,
+.btn-crear:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Botón centrado (auth) */
+.body-centered button {
+    align-self: center;
+    width: 100%;
+    margin: 15px 0 10px 0;
+}
+
+/* ========================================
+   10. COMPONENTE - ENLACES Y TEXTOS
+   ======================================== */
+.restrablecer_contraseña {
+    text-decoration: none;
+    color: var(--color-texto-secundario);
+    font-size: 0.85rem;
+    margin-top: -5px;
+    text-align: center;
+}
+
+.restrablecer_contraseña:hover {
+    color: var(--color-primario);
+    text-decoration: underline;
+}
+
+.mensaje {
+    text-align: center;
+    color: var(--color-texto-oscuro);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    width: 100%;
+}
+
+/* ========================================
+   11. COMPONENTE - TARJETA DE EVENTO
+   ======================================== */
+.sin-eventos {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--color-texto-secundario);
+}
+
+.sin-eventos p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: var(--color-texto-oscuro);
+}
+
+.evento-card {
+    background: var(--color-fondo-claro);
+    border-left: 4px solid var(--color-primario);
+    border-radius: var(--borde-radio-pequeño);
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: box-shadow var(--transicion-rapida);
+}
+
+.evento-card:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.evento-card h3 {
+    color: var(--color-texto);
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.evento-card .fecha-hora {
+    font-size: 0.9rem;
+    color: var(--color-texto-secundario);
+    margin-bottom: 5px;
+}
+
+.evento-card .nota {
+    font-size: 0.9rem;
+    color: #555555;
+    font-style: italic;
+}
+
+.evento-card .acciones {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.evento-card .acciones a {
+    font-size: 0.85rem;
+    color: var(--color-primario);
+    text-decoration: none;
+}
+
+.evento-card .acciones a:hover {
+    text-decoration: underline;
+}
+
+.evento-card .acciones .eliminar {
+    color: #dc3545;
+}
+
+/* ========================================
+   12. MEDIA QUERIES (Responsive)
+   ======================================== */
+
+/* Tablet Pequeña (480px) */
+@media (min-width: 480px) {
+    .formulario {
+        width: 90%;
+        padding: 35px;
+    }
+    
+    .app-header h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Tablet (768px) */
+@media (min-width: 768px) {
+    .formulario {
+        width: 80%;
+        border-radius: var(--borde-radio-grande);
+        padding: 40px;
+    }
+    
+    .body-centered .formulario {
+        min-height: 350px;
+    }
+    
+    .encabezado h1,
+    .encabezado h2 {
+        font-size: 1.8rem;
+    }
+    
+    label {
+        font-size: 1rem;
+    }
+    
+    input, textarea, button {
+        font-size: 1.05rem;
+        padding: 12px;
+    }
+}
+
+/* Desktop Pequeño (1024px) */
+@media (min-width: 1024px) {
+    .formulario {
+        width: 65%;
+    }
+    
+    .body-centered .formulario {
+        min-height: 380px;
+    }
+    
+    .app-header {
+        padding: 20px 40px;
+    }
+}
+
+/* Desktop Grande (1200px) */
+@media (min-width: 1200px) {
+    .formulario {
+        max-width: 600px;
+        padding: 40px;
+    }
+    
+    .body-centered .formulario {
+        width: 550px;
+        height: auto;
+    }
+    
+    .encabezado h1,
+    .encabezado h2 {
+        font-size: 2rem;
+    }
+    
+    label {
+        font-size: 1.05rem;
+    }
+    
+    input, textarea, button {
+        font-size: 1.1rem;
+        padding: 14px;
+    }
+    
+    button {
+        margin: 20px 0 15px 0;
+    }
+}
