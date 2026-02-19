@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/mis_eventos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>AgendaFip - Mis Eventos</title>
+</head>
+<body>
+    <header class="app-header">
+        <h1>AgendaFip</h1>
+        <button id="menuBtn" class="menu-btn">☰</button>
+        <div id="menuContent" class="dropdown-menu">
+            <a href="mis_eventos.html">Mis Eventos</a>
+            <a href="agenda.html">Agendar Evento</a>
+            <a href="registro.html">Cerrar Sesión</a>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <div class="formulario">
+            <div class="encabezado">
+                <h2>Mis Eventos</h2>
+            </div>
+            
+            <!-- Contenedor para los eventos (vacío por ahora) -->
+            <div id="listaEventos" class="lista-eventos">
+                <div class="sin-eventos">
+                    <p>📭 Aún no tienes eventos creados</p>
+                    <a href="agenda.html" class="btn-crear">+ Crear mi primer evento</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

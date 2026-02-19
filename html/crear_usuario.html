@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/crear_usuario.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>AgendaFip - Crear Usuario</title>
+</head>
+<body>
+    <div class="formulario">
+        <div class="encabezado">
+            <h1>AgendaFip</h1>
+        </div>
+        <form action="../php/crear_usuario.php" method="post">
+            <div class="usuario">
+                <label for="usuario">Usuario</label>
+                <input 
+                type="text" 
+                id="usuario" 
+                name="usuario"
+                placeholder="Ingresa tu usuario"
+                required
+                >
+            </div>
+            
+            <div class="email">
+                <label for="email">Email</label>
+                <input 
+                type="email" 
+                id="email" 
+                name="email"
+                placeholder="Ingresa tu email"
+                required
+                >
+            </div>
+            
+            <div class="contraseña">
+                <label for="contraseña">Contraseña</label>
+                <input 
+                type="password" 
+                id="contraseña" 
+                name="contraseña"
+                placeholder="Ingresa tu contraseña"
+                required
+                >
+            </div>
+            
+            <div class="confirmar_contraseña">
+                <label for="confirmar_contraseña">Confirmar Contraseña</label>
+                <input 
+                type="password" 
+                id="confirmar_contraseña" 
+                name="confirmar_contraseña"
+                placeholder="Confirma tu contraseña"
+                required
+                >
+            </div>
+            
+            <button type="submit">Crear Usuario</button>
+            <a href="registro.html" class="restrablecer_contraseña">¿Ya tienes cuenta? Iniciar Sesión</a>
+        </form>
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+</html>
